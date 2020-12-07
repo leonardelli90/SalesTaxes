@@ -70,8 +70,11 @@ public class AppTest extends TestCase
     public void testTotalTaxesInputTwo() {
         ArrayList<Order> orderList = new ArrayList<Order>();
         LuceneSearchEngine searchEngine = new LuceneSearchEngine();
-        
-        orderList.add(new Order(1, new Item("box of chocolates", searchEngine.searchWord("box of chocolates"), new BigDecimal("10.00")), true));
+        boolean isTaxFree = searchEngine.searchWord("box of chocolates");
+
+        orderList.add(new Order(1, new Item("box of chocolates", isTaxFree, new BigDecimal("10.00")), true));
+
+        isTaxFree = searchEngine.searchWord("bottle of perfume");
         orderList.add(new Order(1, new Item("bottle of perfume", searchEngine.searchWord("bottle of perfume"), new BigDecimal("47.50")), true));
         Invoice invoice = new Invoice(orderList);
         assertEquals("7.65", invoice.getTotalTaxes().toString());

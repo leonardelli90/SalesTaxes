@@ -13,7 +13,6 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
 
-        
         for (int i = 0; i<args.length; i++){
 
             File file = new File("src\\main\\java\\resources\\input\\" + args[i]);

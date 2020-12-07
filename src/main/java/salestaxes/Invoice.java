@@ -15,19 +15,31 @@ final class Invoice {
         return orders;
     }
 
-    void printInvoice(){
-        StringBuilder sb = new StringBuilder();
+    BigDecimal getTotalTaxes(){
         BigDecimal taxes = BigDecimal.ZERO;
-        BigDecimal totalPrice = BigDecimal.ZERO;
-
         for(Order order : orders){
-            sb.append(order.toString() + "\n");
             taxes = taxes.add(order.getTotalTaxesOfOrder());
+        }
+        return taxes;
+    }
+
+    BigDecimal getTotalPrice(){
+        BigDecimal totalPrice = BigDecimal.ZERO;
+        for(Order order : orders){
             totalPrice = totalPrice.add(order.getTotalPriceOfOrder());
         }
+        return totalPrice;
+    }
 
-        sb.append("Sales Taxes: " + taxes + "\n");
-        sb.append("Total: " + totalPrice + "\n");
+    void printInvoice(){
+        StringBuilder sb = new StringBuilder();
+        
+        for(Order order : orders){
+            sb.append(order.toString() + "\n");
+        }
+
+        sb.append("Sales Taxes: " + getTotalTaxes() + "\n");
+        sb.append("Total: " + getTotalPrice() + "\n");
         
         System.out.println(sb);
         

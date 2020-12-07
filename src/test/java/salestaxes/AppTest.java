@@ -3,11 +3,9 @@ package salestaxes;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import junit.framework.TestCase;
-import salestaxes.lucene.searchengine.LuceneSearchEngine;
 
 public class AppTest extends TestCase
 {
@@ -96,5 +94,5 @@ public class AppTest extends TestCase
         Invoice invoice = new Invoice(orderList);
         assertEquals("6.70", invoice.getTotalTaxes().toString());
     } 
-    
+
 }

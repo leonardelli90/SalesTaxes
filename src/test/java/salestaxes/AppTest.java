@@ -39,7 +39,6 @@ public class AppTest extends TestCase
     } 
 
     @Test
-
     public void testTotalTaxesInputOne() {
         ArrayList<Order> orderList = new ArrayList<Order>();
         
@@ -52,7 +51,6 @@ public class AppTest extends TestCase
     } 
 
     @Test
-
     public void testTotalPriceInputTwo() {
         ArrayList<Order> orderList = new ArrayList<Order>();
         
@@ -64,7 +62,6 @@ public class AppTest extends TestCase
     } 
 
     @Test
-
     public void testTotalTaxesInputTwo() {
         ArrayList<Order> orderList = new ArrayList<Order>();
 
@@ -75,7 +72,6 @@ public class AppTest extends TestCase
     } 
 
     @Test
-
     public void testTotalPriceInputThree() {
         ArrayList<Order> orderList = new ArrayList<Order>();
         
@@ -89,7 +85,6 @@ public class AppTest extends TestCase
     } 
 
     @Test
-
     public void testTotalTaxesInputThree() {
         ArrayList<Order> orderList = new ArrayList<Order>();
         
@@ -101,12 +96,5 @@ public class AppTest extends TestCase
         Invoice invoice = new Invoice(orderList);
         assertEquals("6.70", invoice.getTotalTaxes().toString());
     } 
-
-    //this test give error in the travis CI build, but pass in local.
-    @Ignore
-    @Test
-    public void testSearchEngine(){
-        LuceneSearchEngine searchEngine = new LuceneSearchEngine();
-        assertEquals(true, searchEngine.searchWord("chocolate"));
-    }
+    
 }

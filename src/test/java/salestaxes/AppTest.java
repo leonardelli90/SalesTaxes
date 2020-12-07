@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 import junit.framework.TestCase;
-import salestaxes.lucene.searchengine.LuceneSearchEngine;
+//import salestaxes.lucene.searchengine.LuceneSearchEngine;
 
 public class AppTest extends TestCase
 {
@@ -91,12 +91,12 @@ public class AppTest extends TestCase
 
     public void testTotalTaxesInputThree() {
         ArrayList<Order> orderList = new ArrayList<Order>();
-        LuceneSearchEngine searchEngine = new LuceneSearchEngine();
+        //LuceneSearchEngine searchEngine = new LuceneSearchEngine();
         
         orderList.add(new Order(1, new Item("bottle of perfume", false, new BigDecimal("27.99")), true));
         orderList.add(new Order(1, new Item("bottle of perfume", false, new BigDecimal("18.99")), false));
         orderList.add(new Order(1, new Item("packet of headache pills", true, new BigDecimal("9.75")), false));
-        orderList.add(new Order(1, new Item("box of chocolates", searchEngine.searchWord("box of chocolates"), new BigDecimal("11.25")), true));
+        orderList.add(new Order(1, new Item("box of chocolates", true, new BigDecimal("11.25")), true));
        
         Invoice invoice = new Invoice(orderList);
         assertEquals("6.70", invoice.getTotalTaxes().toString());
